@@ -1,0 +1,31 @@
+[project]
+name = "er"
+version = "0.1.0"
+description = "提取/替换工具"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["rich", "typer", "natsort", "tomlkit", "pillow", "fontTools"]
+
+[project.scripts]
+start = "er.main:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/er"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+include = ["src"]
+
+reportUnusedCallResult = "none"
+reportUnknownArgumentType = "none"
+reportAny = "none"
+reportExplicitAny = "none"
+reportUnknownVariableType = "none"
